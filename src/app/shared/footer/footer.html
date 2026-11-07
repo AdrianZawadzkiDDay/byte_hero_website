@@ -4,12 +4,15 @@
     <div class="footer-brand">
       <app-logo size="sm" />
       <p class="muted">{{ t().footer.tagline }}</p>
+      <p class="footer-contact">
+        <span class="muted">{{ t().nav.contact }}:</span>
+        <span class="email">{{ site.contactEmail }}</span>
+      </p>
     </div>
     <nav class="footer-nav" [attr.aria-label]="t().footer.navAria">
       <a routerLink="/games">{{ t().nav.games }}</a>
       <a routerLink="/books">{{ t().nav.books }}</a>
       <a routerLink="/privacy">{{ t().nav.privacy }}</a>
-      <a [href]="'mailto:' + site.contactEmail">{{ t().nav.contact }}</a>
     </nav>
   </div>
   <div class="container footer-bottom">

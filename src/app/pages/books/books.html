@@ -26,10 +26,10 @@
 
     <p class="contact">
       {{ t().books.contactText }}
-      <a [href]="'mailto:' + site.contactEmail">
+      <span class="contact-email">
         <app-icon name="mail" />
-        {{ t().common.writeToUs }}
-      </a>
+        <span class="email">{{ site.contactEmail }}</span>
+      </span>
     </p>
   </div>
 </section>

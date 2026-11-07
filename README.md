@@ -14,14 +14,14 @@ npm run build    # produkcja → dist/byte-hero-website/browser
 
 ## Gdzie co zmieniać
 
-| Co                                             | Plik                                       |
-| ---------------------------------------------- | ------------------------------------------ |
-| Adres e-mail, URL-e, flaga „gra w Google Play” | `src/app/core/site.config.ts`              |
-| Wszystkie teksty strony (PL / EN)              | `src/app/i18n/pl.ts`, `src/app/i18n/en.ts` |
-| Treść polityki prywatności GeoQuiz (PL/EN)     | `src/app/i18n/privacy-geoquiz.ts`          |
-| Kolory motywu jasnego i ciemnego               | `src/styles.scss` (tokeny na `:root`)      |
-| Grafiki (logo, GeoQuiz)                        | `public/img/`                              |
-| Trasy                                          | `src/app/app.routes.ts`                    |
+| Co                                                                      | Plik                                       |
+| ----------------------------------------------------------------------- | ------------------------------------------ |
+| Adres e-mail (wyświetlany jako tekst), URL-e, flaga „gra w Google Play” | `src/app/core/site.config.ts`              |
+| Wszystkie teksty strony (PL / EN)                                       | `src/app/i18n/pl.ts`, `src/app/i18n/en.ts` |
+| Treść polityki prywatności GeoQuiz (PL/EN)                              | `src/app/i18n/privacy-geoquiz.ts`          |
+| Kolory motywu jasnego i ciemnego                                        | `src/styles.scss` (tokeny na `:root`)      |
+| Grafiki (logo, GeoQuiz)                                                 | `public/img/`                              |
+| Trasy                                                                   | `src/app/app.routes.ts`                    |
 
 Po publikacji gry w sklepie ustaw `playStoreLive: true` w `site.config.ts` – przyciski
 „Wkrótce w Google Play” zamienią się w linki do sklepu.

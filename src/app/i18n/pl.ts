@@ -49,7 +49,6 @@ export const pl = {
     privacyPolicy: 'Polityka prywatności',
     backHome: 'Wróć na stronę główną',
     newTab: 'otwiera się w nowej karcie',
-    writeToUs: 'Napisz do nas',
   },
   home: {
     heroEyebrow: 'Studio gier',

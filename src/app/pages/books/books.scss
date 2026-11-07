@@ -37,10 +37,16 @@
   color: var(--text-muted);
 }
 
-.contact a {
+.contact-email {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
   margin-left: 0.25rem;
+  color: var(--text);
+}
+
+.email {
   font-weight: 600;
+  user-select: all;
+  -webkit-user-select: all;
 }

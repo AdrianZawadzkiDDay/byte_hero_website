@@ -5,8 +5,9 @@
 export const SITE = {
   name: 'Byte Hero',
   url: 'https://byte-hero.com',
-  // ZMIEŃ: publiczny adres kontaktowy (stopka, podstrona Książki, polityka prywatności).
-  contactEmail: 'kontakt@byte-hero.com',
+  // Publiczny adres kontaktowy – wyświetlany jako zwykły tekst (bez linków mailto)
+  // w stopce, na podstronie Książki i w polityce prywatności.
+  contactEmail: 'adrianmercury33@gmail.com',
 } as const;
 
 export const GEOQUIZ = {

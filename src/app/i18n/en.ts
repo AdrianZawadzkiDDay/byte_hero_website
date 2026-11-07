@@ -51,7 +51,6 @@ export const en: Translations = {
     privacyPolicy: 'Privacy Policy',
     backHome: 'Back to the home page',
     newTab: 'opens in a new tab',
-    writeToUs: 'Write to us',
   },
   home: {
     heroEyebrow: 'Game studio',

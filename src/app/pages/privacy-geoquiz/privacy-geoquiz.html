@@ -48,13 +48,11 @@
       <ul class="contact-list">
         <li>
           <app-icon name="mail" />
-          <a [href]="'mailto:' + site.contactEmail">{{ site.contactEmail }}</a>
+          <span class="email">{{ site.contactEmail }}</span>
         </li>
         <li>
           <app-icon name="globe" />
-          <span
-            >{{ t().privacyGeoquiz.website }}: <a [href]="site.url">{{ site.url }}</a></span
-          >
+          <span>{{ t().privacyGeoquiz.website }}: {{ site.url }}</span>
         </li>
       </ul>
       <p class="policy-url muted">{{ policyUrl }}</p>
