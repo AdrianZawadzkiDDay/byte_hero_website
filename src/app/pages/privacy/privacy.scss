@@ -1,0 +1,45 @@
+.policies {
+  padding-top: 1rem;
+}
+
+.policies h2 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.policy-card {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.policy-card img {
+  flex: none;
+  border-radius: 14px;
+}
+
+.policy-card h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1.15rem;
+}
+
+.policy-card p {
+  margin: 0 0 0.5rem;
+  color: var(--text-muted);
+}
+
+.read {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-weight: 600;
+}
+
+.site-title {
+  margin-top: 2.5rem;
+}
+
+.site-text {
+  max-width: 70ch;
+  color: var(--text-muted);
+}

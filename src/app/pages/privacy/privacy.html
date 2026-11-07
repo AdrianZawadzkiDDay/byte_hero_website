@@ -1,0 +1,28 @@
+<section class="page-head">
+  <div class="container">
+    <h1>{{ t().privacy.title }}</h1>
+    <p class="lead">{{ t().privacy.intro }}</p>
+  </div>
+</section>
+
+<section class="section policies">
+  <div class="container">
+    <h2>{{ t().privacy.appsTitle }}</h2>
+    <div class="grid-2">
+      <article class="card policy-card">
+        <img src="/img/geoquiz/icon-512.png" width="56" height="56" alt="" />
+        <div>
+          <h3>{{ geoquiz.name }}</h3>
+          <p>{{ t().privacy.geoquizText }}</p>
+          <a class="read" [routerLink]="geoquiz.privacyPath">
+            {{ t().privacy.read }}
+            <app-icon name="arrow-right" />
+          </a>
+        </div>
+      </article>
+    </div>
+
+    <h2 class="site-title">{{ t().privacy.siteTitle }}</h2>
+    <p class="site-text">{{ t().privacy.siteText }}</p>
+  </div>
+</section>

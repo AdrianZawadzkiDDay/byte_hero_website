@@ -1,0 +1,230 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(3rem, 8vw, 6rem) clamp(3rem, 7vw, 5rem);
+  background:
+    radial-gradient(
+      640px 340px at 6% 0%,
+      color-mix(in srgb, var(--brand-blue) 14%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      520px 300px at 94% 100%,
+      color-mix(in srgb, var(--brand-red) 10%, transparent),
+      transparent 70%
+    );
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 400px);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+
+.hero-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.9rem;
+}
+
+.hero-logo {
+  margin-block: 0.25rem 0.25rem;
+}
+
+.hero-title {
+  margin: 0;
+  max-width: 22ch;
+  font-size: clamp(1.6rem, 3.4vw, 2.4rem);
+}
+
+.hero-text {
+  margin: 0 0 0.5rem;
+  max-width: 54ch;
+  font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+  color: var(--text-muted);
+}
+
+/* Kafelek GeoQuiz – kwadrat w kolorach gry, jeden główny przycisk */
+.game-tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  justify-self: end;
+  width: min(100%, 400px);
+  aspect-ratio: 1;
+  padding: clamp(1.5rem, 3vw, 2rem);
+  border-radius: 28px;
+  border: 1px solid var(--geo-border);
+  background: radial-gradient(circle at 30% 15%, var(--geo-bg-2), transparent 60%), var(--geo-bg);
+  color: var(--geo-text);
+  text-align: center;
+  box-shadow: var(--shadow-md);
+}
+
+.tile-globe {
+  width: 170px;
+  height: 170px;
+  filter: drop-shadow(0 18px 32px rgba(0, 0, 0, 0.55));
+}
+
+.tile-badge {
+  display: inline-flex;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  background: var(--geo-orange);
+  color: #1b1230;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.tile-title {
+  margin: 0;
+  font-size: 1.85rem;
+  color: #ffffff;
+}
+
+.tile-title a {
+  color: inherit;
+}
+
+.tile-text {
+  margin: 0;
+  max-width: 34ch;
+  font-size: 0.95rem;
+  color: var(--geo-muted);
+}
+
+.tile-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.4rem;
+}
+
+.tile-actions .btn-primary {
+  background: var(--geo-orange);
+  color: #1b1230;
+}
+
+.tile-actions .btn-primary:hover {
+  background: #ffa445;
+}
+
+.tile-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #c7d2fe;
+}
+
+@media (max-width: 899px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-copy {
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-copy .actions {
+    justify-content: center;
+  }
+
+  .game-tile {
+    justify-self: center;
+    aspect-ratio: auto;
+  }
+}
+
+.pillar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.pillar-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  font-size: 1.5rem;
+}
+
+.icon-game {
+  background: color-mix(in srgb, var(--brand-red) 14%, transparent);
+  color: var(--brand-red);
+}
+
+.icon-book {
+  background: color-mix(in srgb, var(--brand-green) 14%, transparent);
+  color: var(--brand-green);
+}
+
+.icon-shield {
+  background: color-mix(in srgb, var(--brand-blue) 14%, transparent);
+  color: var(--brand-blue);
+}
+
+.pillar h3 {
+  margin: 0.25rem 0 0;
+  font-size: 1.2rem;
+}
+
+.pillar p {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.roadmap {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.roadmap-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1.25rem;
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.roadmap-num {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  background: var(--primary);
+  color: var(--on-primary);
+  font-weight: 700;
+}
+
+.roadmap-item h3 {
+  margin: 0.3rem 0 0.25rem;
+  font-size: 1.05rem;
+}
+
+.roadmap-item p {
+  margin: 0;
+  color: var(--text-muted);
+}

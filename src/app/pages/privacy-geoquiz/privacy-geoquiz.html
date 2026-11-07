@@ -1,0 +1,67 @@
+<article class="policy">
+  <header class="page-head">
+    <div class="container">
+      <p class="eyebrow">{{ t().privacyGeoquiz.app }}</p>
+      <h1>{{ t().privacyGeoquiz.title }}</h1>
+      <p class="updated">
+        {{ t().privacyGeoquiz.updatedLabel }}:
+        <time [attr.datetime]="updatedIso">{{ updated() }}</time>
+      </p>
+    </div>
+  </header>
+
+  <div class="container policy-body">
+    <aside class="card summary">
+      <h2>{{ t().privacyGeoquiz.summaryTitle }}</h2>
+      <ul>
+        @for (point of t().privacyGeoquiz.summary; track $index) {
+          <li>
+            <app-icon name="check" />
+            <span>{{ point }}</span>
+          </li>
+        }
+      </ul>
+    </aside>
+
+    @for (section of sections(); track section.heading) {
+      <section class="policy-section">
+        <h2>{{ section.heading }}</h2>
+        @for (paragraph of section.paragraphs; track $index) {
+          <p>{{ paragraph }}</p>
+        }
+        @if (section.bullets) {
+          <ul class="bullets">
+            @for (bullet of section.bullets; track $index) {
+              <li>{{ bullet }}</li>
+            }
+          </ul>
+        }
+        @for (paragraph of section.after ?? []; track $index) {
+          <p>{{ paragraph }}</p>
+        }
+      </section>
+    }
+
+    <section class="policy-section contact">
+      <h2>{{ sections().length + 1 }}. {{ t().privacyGeoquiz.contactTitle }}</h2>
+      <p>{{ t().privacyGeoquiz.contactText }}</p>
+      <ul class="contact-list">
+        <li>
+          <app-icon name="mail" />
+          <a [href]="'mailto:' + site.contactEmail">{{ site.contactEmail }}</a>
+        </li>
+        <li>
+          <app-icon name="globe" />
+          <span
+            >{{ t().privacyGeoquiz.website }}: <a [href]="site.url">{{ site.url }}</a></span
+          >
+        </li>
+      </ul>
+      <p class="policy-url muted">{{ policyUrl }}</p>
+    </section>
+
+    <p class="back">
+      <a routerLink="/privacy">{{ t().privacyGeoquiz.allPolicies }}</a>
+    </p>
+  </div>
+</article>

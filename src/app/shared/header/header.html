@@ -1,0 +1,48 @@
+<header class="header">
+  <div class="brand-bar"></div>
+  <div class="container header-inner">
+    <a routerLink="/" class="brand" [attr.aria-label]="t().nav.homeAria" (click)="closeMenu()">
+      <app-logo size="sm" />
+    </a>
+
+    <nav id="site-nav" class="nav" [class.open]="menuOpen()" [attr.aria-label]="t().nav.main">
+      <a
+        routerLink="/"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        [routerLinkActiveOptions]="{ exact: true }"
+        (click)="closeMenu()"
+        >{{ t().nav.home }}</a
+      >
+      <a
+        routerLink="/games"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        (click)="closeMenu()"
+        >{{ t().nav.games }}</a
+      >
+      <a
+        routerLink="/books"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        (click)="closeMenu()"
+        >{{ t().nav.books }}</a
+      >
+    </nav>
+
+    <div class="controls">
+      <app-lang-switch />
+      <app-theme-toggle />
+      <button
+        type="button"
+        class="icon-btn menu-btn"
+        aria-controls="site-nav"
+        [attr.aria-expanded]="menuOpen()"
+        [attr.aria-label]="menuOpen() ? t().nav.closeMenu : t().nav.openMenu"
+        (click)="toggleMenu()"
+      >
+        <app-icon [name]="menuOpen() ? 'close' : 'menu'" />
+      </button>
+    </div>
+  </div>
+</header>

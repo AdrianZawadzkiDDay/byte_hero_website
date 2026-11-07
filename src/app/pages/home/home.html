@@ -1,0 +1,86 @@
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">{{ t().home.heroEyebrow }}</p>
+      <app-logo size="lg" class="hero-logo" />
+      <h1 class="hero-title">{{ t().home.heroTitle }}</h1>
+      <p class="hero-text">{{ t().home.heroText }}</p>
+      <div class="actions">
+        <a class="btn btn-primary" routerLink="/games">{{ t().home.ctaGames }}</a>
+        <a class="btn btn-outline" routerLink="/books">{{ t().nav.books }}</a>
+      </div>
+    </div>
+
+    <article class="game-tile" aria-labelledby="geoquiz-tile-title">
+      <img
+        class="tile-globe"
+        src="/img/geoquiz/globe.png"
+        width="170"
+        height="170"
+        [alt]="t().geoquiz.logoAlt"
+      />
+      <span class="tile-badge">{{ t().common.freeGame }}</span>
+      <h2 id="geoquiz-tile-title" class="tile-title">
+        <a routerLink="/games/geoquiz">GeoQuiz</a>
+      </h2>
+      <p class="tile-text">{{ t().home.tileText }}</p>
+      <div class="tile-actions">
+        <a class="btn btn-primary" [href]="geoquiz.webUrl" target="_blank" rel="noopener">
+          <app-icon name="play" />
+          {{ t().common.playWeb }}
+          <span class="visually-hidden">({{ t().common.newTab }})</span>
+        </a>
+        <a class="tile-more" routerLink="/games/geoquiz">
+          {{ t().common.learnMore }}
+          <app-icon name="arrow-right" />
+        </a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <p class="eyebrow">{{ t().home.pillarsEyebrow }}</p>
+    <h2 class="section-title">{{ t().home.pillarsTitle }}</h2>
+    <div class="grid-3">
+      @for (pillar of t().home.pillars; track pillar.icon) {
+        <article class="card pillar">
+          <span [class]="'pillar-icon icon-' + pillar.icon">
+            @switch (pillar.icon) {
+              @case ('game') {
+                <app-icon name="game" />
+              }
+              @case ('book') {
+                <app-icon name="book" />
+              }
+              @default {
+                <app-icon name="shield" />
+              }
+            }
+          </span>
+          <h3>{{ pillar.title }}</h3>
+          <p>{{ pillar.text }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="section section-soft">
+  <div class="container">
+    <p class="eyebrow">{{ t().home.roadmapEyebrow }}</p>
+    <h2 class="section-title">{{ t().home.roadmapTitle }}</h2>
+    <ol class="roadmap">
+      @for (item of t().home.roadmap; track item.title; let i = $index) {
+        <li class="roadmap-item">
+          <span class="roadmap-num" aria-hidden="true">{{ i + 1 }}</span>
+          <div>
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.text }}</p>
+          </div>
+        </li>
+      }
+    </ol>
+  </div>
+</section>

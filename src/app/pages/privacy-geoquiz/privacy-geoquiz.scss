@@ -1,0 +1,94 @@
+.updated {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.policy-body {
+  max-width: 820px;
+  padding-bottom: clamp(3rem, 7vw, 5rem);
+}
+
+.summary {
+  margin-block: 1.5rem 2.5rem;
+}
+
+.summary h2 {
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+}
+
+.summary ul {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.summary li {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+}
+
+.summary app-icon {
+  margin-top: 0.2rem;
+  color: var(--brand-green);
+}
+
+.policy-section {
+  margin-top: 2rem;
+}
+
+.policy-section h2 {
+  font-size: 1.3rem;
+}
+
+.policy-section p {
+  color: var(--text);
+}
+
+.bullets {
+  margin: 0 0 1em;
+  padding-left: 1.5rem;
+}
+
+.bullets li {
+  margin-bottom: 0.25rem;
+}
+
+.contact-list {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0 0 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.contact-list li {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.contact-list app-icon {
+  color: var(--primary);
+}
+
+.policy-url {
+  font-size: 0.9rem;
+  word-break: break-all;
+}
+
+.back {
+  margin-top: 2.5rem;
+  font-weight: 600;
+}
+
+@media print {
+  .back,
+  .summary app-icon,
+  .contact-list app-icon {
+    display: none;
+  }
+}

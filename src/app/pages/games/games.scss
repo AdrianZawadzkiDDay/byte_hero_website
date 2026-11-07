@@ -1,0 +1,61 @@
+.games {
+  padding-top: 1rem;
+}
+
+.game-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  align-items: stretch;
+}
+
+.game-media {
+  display: block;
+}
+
+.game-media img {
+  width: min(100%, 220px);
+  margin-inline: auto;
+  filter: drop-shadow(0 16px 32px rgba(0, 0, 0, 0.5));
+}
+
+.game-body h2 {
+  margin-bottom: 0.25rem;
+  font-size: 1.6rem;
+}
+
+.game-body h2 a {
+  color: inherit;
+}
+
+.tagline {
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.geo-panel .tagline {
+  color: var(--geo-muted);
+}
+
+.placeholder {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-sm);
+  background: var(--bg-muted);
+  color: var(--text-muted);
+}
+
+.placeholder app-icon {
+  width: 64px;
+  height: 64px;
+}
+
+.upcoming .badge {
+  margin-bottom: 0.75rem;
+}
+
+.upcoming p {
+  margin: 0;
+  color: var(--text-muted);
+}

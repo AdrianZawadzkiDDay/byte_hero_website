@@ -1,0 +1,35 @@
+<section class="page-head">
+  <div class="container">
+    <h1>{{ t().books.title }}</h1>
+    <p class="lead">{{ t().books.intro }}</p>
+  </div>
+</section>
+
+<section class="section books">
+  <div class="container">
+    <div class="grid-2">
+      @for (item of t().books.items; track item.icon) {
+        <article class="card book-card">
+          <span class="book-icon">
+            @if (item.icon === 'ebook') {
+              <app-icon name="ebook" />
+            } @else {
+              <app-icon name="book" />
+            }
+          </span>
+          <span class="badge">{{ t().common.soon }}</span>
+          <h2>{{ item.title }}</h2>
+          <p>{{ item.text }}</p>
+        </article>
+      }
+    </div>
+
+    <p class="contact">
+      {{ t().books.contactText }}
+      <a [href]="'mailto:' + site.contactEmail">
+        <app-icon name="mail" />
+        {{ t().common.writeToUs }}
+      </a>
+    </p>
+  </div>
+</section>

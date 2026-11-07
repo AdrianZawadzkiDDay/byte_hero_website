@@ -1,0 +1,48 @@
+<section class="page-head">
+  <div class="container">
+    <h1>{{ t().games.title }}</h1>
+    <p class="lead">{{ t().games.intro }}</p>
+  </div>
+</section>
+
+<section class="section games">
+  <div class="container">
+    <div class="grid-2">
+      <article class="geo-panel game-card">
+        <a routerLink="/games/geoquiz" class="game-media" tabindex="-1" aria-hidden="true">
+          <img src="/img/geoquiz/globe.png" width="200" height="200" alt="" />
+        </a>
+        <div class="game-body">
+          <h2><a routerLink="/games/geoquiz">GeoQuiz</a></h2>
+          <p class="tagline">{{ t().games.geoquizTagline }}</p>
+          <p>{{ t().games.geoquizText }}</p>
+          <ul class="badges">
+            <li class="badge">{{ t().common.free }}</li>
+            <li class="badge">{{ t().common.noAds }}</li>
+            <li class="badge">{{ t().common.offline }}</li>
+            <li class="badge" aria-label="Polski, English, Deutsch">🇵🇱 🇬🇧 🇩🇪</li>
+          </ul>
+          <div class="actions">
+            <a class="btn btn-primary" [href]="geoquiz.webUrl" target="_blank" rel="noopener">
+              <app-icon name="play" />
+              {{ t().common.playWeb }}
+              <span class="visually-hidden">({{ t().common.newTab }})</span>
+            </a>
+            <a class="btn btn-outline" routerLink="/games/geoquiz">{{ t().common.learnMore }}</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card game-card upcoming">
+        <div class="game-media placeholder">
+          <app-icon name="game" />
+        </div>
+        <div class="game-body">
+          <span class="badge">{{ t().common.inDevelopment }}</span>
+          <h2>{{ t().games.upcomingTitle }}</h2>
+          <p>{{ t().games.upcomingText }}</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

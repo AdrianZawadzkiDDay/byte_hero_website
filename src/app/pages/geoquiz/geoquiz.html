@@ -1,0 +1,132 @@
+<section class="page-head">
+  <div class="container">
+    <div class="geo-head">
+      <img
+        class="app-icon"
+        src="/img/geoquiz/icon-512.png"
+        width="96"
+        height="96"
+        [alt]="t().geoquiz.iconAlt"
+      />
+      <div>
+        <p class="eyebrow">{{ t().geoquiz.eyebrow }}</p>
+        <h1>GeoQuiz</h1>
+        <p class="tagline">{{ t().geoquiz.tagline }}</p>
+      </div>
+    </div>
+    <p class="lead">{{ t().geoquiz.intro }}</p>
+    <ul class="badges">
+      <li class="badge">{{ t().common.free }}</li>
+      <li class="badge">{{ t().common.noAds }}</li>
+      <li class="badge">{{ t().common.offline }}</li>
+      <li class="badge">{{ t().common.noAccount }}</li>
+    </ul>
+    <div class="actions">
+      <a class="btn btn-primary" [href]="geoquiz.webUrl" target="_blank" rel="noopener">
+        <app-icon name="play" />
+        {{ t().common.playWeb }}
+        <span class="visually-hidden">({{ t().common.newTab }})</span>
+      </a>
+      @if (geoquiz.playStoreLive) {
+        <a class="btn btn-outline" [href]="geoquiz.playStoreUrl" target="_blank" rel="noopener">
+          {{ t().common.googlePlay }}
+          <span class="visually-hidden">({{ t().common.newTab }})</span>
+        </a>
+      } @else {
+        <span class="btn btn-outline is-disabled" aria-disabled="true">{{
+          t().common.googlePlaySoon
+        }}</span>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="section shot">
+  <div class="container">
+    <figure class="screenshot geo-panel">
+      <img
+        src="/img/geoquiz/screenshot-day.jpg"
+        width="1600"
+        height="893"
+        [alt]="t().geoquiz.screenshotAlt"
+        loading="lazy"
+      />
+      <figcaption>{{ t().geoquiz.screenshotCaption }}</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="section section-soft">
+  <div class="container">
+    <h2 class="section-title">{{ t().geoquiz.howTitle }}</h2>
+    <ol class="steps">
+      @for (step of t().geoquiz.steps; track $index) {
+        <li>{{ step }}</li>
+      }
+    </ol>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">{{ t().geoquiz.modesTitle }}</h2>
+    <ul class="modes">
+      @for (mode of t().geoquiz.modes; track mode.name) {
+        <li class="mode">
+          <span class="mode-icon" aria-hidden="true">{{ mode.icon }}</span>
+          <div>
+            <h3>{{ mode.name }}</h3>
+            <p>{{ mode.text }}</p>
+          </div>
+        </li>
+      }
+    </ul>
+  </div>
+</section>
+
+<section class="section section-soft">
+  <div class="container">
+    <h2 class="section-title">{{ t().geoquiz.stylesTitle }}</h2>
+    <ul class="styles-grid">
+      @for (style of t().geoquiz.styles; track style.key) {
+        <li class="card style-card">
+          <img [src]="'/img/geoquiz/globe-' + style.key + '.png'" width="120" height="120" alt="" />
+          <h3>{{ style.name }}</h3>
+          <p>{{ style.text }}</p>
+        </li>
+      }
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container info-grid">
+    <article class="card info-card">
+      <h2><app-icon name="globe" /> {{ t().geoquiz.langsTitle }}</h2>
+      <p class="flags" aria-label="Polski, English, Deutsch">🇵🇱 🇬🇧 🇩🇪</p>
+      <p>{{ t().geoquiz.langsText }}</p>
+    </article>
+
+    <article class="card info-card">
+      <h2><app-icon name="monitor" /> {{ t().geoquiz.platformsTitle }}</h2>
+      <ul class="platform-list">
+        <li>
+          <app-icon name="monitor" />
+          <span>{{ t().geoquiz.platformWeb }}</span>
+        </li>
+        <li>
+          <app-icon name="phone" />
+          <span>{{ t().geoquiz.platformAndroid }}</span>
+        </li>
+      </ul>
+    </article>
+
+    <article class="card info-card">
+      <h2><app-icon name="shield" /> {{ t().geoquiz.privacyTitle }}</h2>
+      <p>{{ t().geoquiz.privacyText }}</p>
+      <a class="btn btn-outline" [routerLink]="geoquiz.privacyPath">{{
+        t().common.privacyPolicy
+      }}</a>
+    </article>
+  </div>
+</section>
