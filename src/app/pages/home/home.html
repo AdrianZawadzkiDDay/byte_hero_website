@@ -6,22 +6,34 @@
       <h1 class="hero-title">{{ t().home.heroTitle }}</h1>
       <p class="hero-text">{{ t().home.heroText }}</p>
       <div class="actions">
-        <a class="btn btn-primary" routerLink="/games">{{ t().home.ctaGames }}</a>
-        <a class="btn btn-outline" routerLink="/books">{{ t().nav.books }}</a>
+        <a class="btn btn-primary" [routerLink]="i18n.link('/games')">{{ t().home.ctaGames }}</a>
+        <a class="btn btn-outline" [routerLink]="i18n.link('/books')">{{ t().nav.books }}</a>
       </div>
     </div>
 
     <article class="game-tile" aria-labelledby="geoquiz-tile-title">
-      <img
-        class="tile-globe"
-        src="/img/geoquiz/globe.png"
-        width="170"
-        height="170"
-        [alt]="t().geoquiz.logoAlt"
-      />
+      <picture>
+        <source
+          srcset="
+            /img/geoquiz/globe-200.webp 200w,
+            /img/geoquiz/globe-300.webp 300w,
+            /img/geoquiz/globe-400.webp 400w
+          "
+          sizes="170px"
+          type="image/webp"
+        />
+        <img
+          class="tile-globe"
+          src="/img/geoquiz/globe.png"
+          width="170"
+          height="170"
+          [alt]="t().geoquiz.logoAlt"
+          fetchpriority="high"
+        />
+      </picture>
       <span class="tile-badge">{{ t().common.freeGame }}</span>
       <h2 id="geoquiz-tile-title" class="tile-title">
-        <a routerLink="/games/geoquiz">GeoQuiz</a>
+        <a [routerLink]="i18n.link('/games/geoquiz')">GeoQuiz</a>
       </h2>
       <p class="tile-text">{{ t().home.tileText }}</p>
       <div class="tile-actions">
@@ -30,7 +42,7 @@
           {{ t().common.playWeb }}
           <span class="visually-hidden">({{ t().common.newTab }})</span>
         </a>
-        <a class="tile-more" routerLink="/games/geoquiz">
+        <a class="tile-more" [routerLink]="i18n.link('/games/geoquiz')">
           {{ t().common.learnMore }}
           <app-icon name="arrow-right" />
         </a>

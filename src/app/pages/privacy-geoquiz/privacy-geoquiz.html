@@ -1,6 +1,7 @@
 <article class="policy">
   <header class="page-head">
     <div class="container">
+      <app-breadcrumbs page="privacyGeoquiz" />
       <p class="eyebrow">{{ t().privacyGeoquiz.app }}</p>
       <h1>{{ t().privacyGeoquiz.title }}</h1>
       <p class="updated">
@@ -55,11 +56,11 @@
           <span>{{ t().privacyGeoquiz.website }}: {{ site.url }}</span>
         </li>
       </ul>
-      <p class="policy-url muted">{{ policyUrl }}</p>
+      <p class="policy-url muted">{{ policyUrl() }}</p>
     </section>
 
     <p class="back">
-      <a routerLink="/privacy">{{ t().privacyGeoquiz.allPolicies }}</a>
+      <a [routerLink]="i18n.link('/privacy')">{{ t().privacyGeoquiz.allPolicies }}</a>
     </p>
   </div>
 </article>

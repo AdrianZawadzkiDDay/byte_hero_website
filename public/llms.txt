@@ -1,0 +1,37 @@
+# Byte Hero
+
+> Byte Hero is a small game studio that makes mobile and browser games, plus books, for curious minds. Its first game is GeoQuiz, a free geography quiz played on a spinning 3D globe. The website is available in Polish (default, https://byte-hero.com/) and English (https://byte-hero.com/en).
+
+Key facts:
+
+- Studio: Byte Hero, website https://byte-hero.com
+- First game: GeoQuiz (also written "Geo Quiz"), a geography quiz and educational game
+- GeoQuiz content: flags, capitals, country shapes and locations of nearly 200 countries on six continents
+- GeoQuiz modes: Flags, Countries, Shapes, Capitals, Where is it, Learn; quiz rounds of 5, 10 or 15 questions
+- GeoQuiz languages: Polish, English, German
+- GeoQuiz price: free, with no ads, no in-app purchases and no account
+- GeoQuiz platforms: web browser at https://geoquiz.byte-hero.com/ (no installation); Android app coming soon to Google Play (package com.bytehero.geoquiz)
+- GeoQuiz privacy: collects no personal data; only the chosen language and globe style are stored on the device
+- Planned: more games (arcade games and shooters) and books (an e-book and a printed edition)
+
+## Games
+
+- [GeoQuiz](https://byte-hero.com/en/games/geoquiz): Game page with key facts, game modes, globe styles and a FAQ
+- [Play GeoQuiz in the browser](https://geoquiz.byte-hero.com/): The game itself, playable without installation
+- [All games](https://byte-hero.com/en/games): List of Byte Hero games
+
+## Studio
+
+- [Home](https://byte-hero.com/en): What Byte Hero does and what it is working on
+- [Books](https://byte-hero.com/en/books): Planned e-book and printed book
+
+## Privacy
+
+- [GeoQuiz privacy policy](https://byte-hero.com/en/privacy/geoquiz): Full privacy policy of the GeoQuiz app and web version
+- [Privacy overview](https://byte-hero.com/en/privacy): Privacy policies of all apps and of this website
+
+## Polski
+
+- [Strona główna](https://byte-hero.com/): Polska wersja strony
+- [GeoQuiz](https://byte-hero.com/games/geoquiz): Strona gry po polsku: fakty, tryby gry i najczęstsze pytania
+- [Polityka prywatności GeoQuiz](https://byte-hero.com/privacy/geoquiz): Polityka prywatności po polsku

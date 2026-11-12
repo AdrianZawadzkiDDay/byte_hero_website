@@ -10,9 +10,10 @@
       </p>
     </div>
     <nav class="footer-nav" [attr.aria-label]="t().footer.navAria">
-      <a routerLink="/games">{{ t().nav.games }}</a>
-      <a routerLink="/books">{{ t().nav.books }}</a>
-      <a routerLink="/privacy">{{ t().nav.privacy }}</a>
+      <a [routerLink]="i18n.link('/games')">{{ t().nav.games }}</a>
+      <a [routerLink]="i18n.link('/games/geoquiz')">GeoQuiz</a>
+      <a [routerLink]="i18n.link('/books')">{{ t().nav.books }}</a>
+      <a [routerLink]="i18n.link('/privacy')">{{ t().nav.privacy }}</a>
     </nav>
   </div>
   <div class="container footer-bottom">

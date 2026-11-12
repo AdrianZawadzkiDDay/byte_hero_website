@@ -6,7 +6,7 @@ import { Component, input } from '@angular/core';
   template: `
     <span [class]="'wordmark ' + size()" role="img" aria-label="Byte Hero"
       ><span class="l-red">B</span><span class="l-yellow">y</span><span class="l-green">t</span
-      ><span class="l-blue">e</span><span class="l-yellow word">Hero</span></span
+      ><span class="l-blue">e</span>&ngsp;<span class="l-yellow">Hero</span></span
     >
   `,
   styles: `
@@ -34,10 +34,6 @@ import { Component, input } from '@angular/core';
 
     .lg {
       font-size: clamp(2.75rem, 7vw, 5.5rem);
-    }
-
-    .word {
-      margin-left: 0.24em;
     }
 
     .l-red {

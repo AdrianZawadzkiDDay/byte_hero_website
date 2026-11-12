@@ -1,10 +1,10 @@
 import { Component, inject, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { I18nService } from '../../core/i18n.service';
+import { Icon } from '../icon/icon';
+import { LangSwitch } from '../lang-switch/lang-switch';
 import { Logo } from '../logo/logo';
 import { ThemeToggle } from '../theme-toggle/theme-toggle';
-import { LangSwitch } from '../lang-switch/lang-switch';
-import { Icon } from '../icon/icon';
 
 @Component({
   selector: 'app-header',
@@ -14,7 +14,8 @@ import { Icon } from '../icon/icon';
   styleUrl: './header.scss',
 })
 export class Header {
-  protected readonly t = inject(I18nService).t;
+  protected readonly i18n = inject(I18nService);
+  protected readonly t = this.i18n.t;
   protected readonly menuOpen = signal(false);
 
   toggleMenu(): void {

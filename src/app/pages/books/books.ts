@@ -1,11 +1,12 @@
 import { Component, inject } from '@angular/core';
 import { I18nService } from '../../core/i18n.service';
 import { SITE } from '../../core/site.config';
+import { Breadcrumbs } from '../../shared/breadcrumbs/breadcrumbs';
 import { Icon } from '../../shared/icon/icon';
 
 @Component({
   selector: 'app-books',
-  imports: [Icon],
+  imports: [Icon, Breadcrumbs],
   templateUrl: './books.html',
   styleUrl: './books.scss',
 })

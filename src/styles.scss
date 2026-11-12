@@ -19,6 +19,8 @@
 
   --primary: #1a73e8;
   --primary-hover: #1559b7;
+  /* tekst w kolorze akcentu na jasnym, podbarwionym tle (kontrast ≥ 4.5:1) */
+  --primary-strong: #1557b0;
   --on-primary: #ffffff;
   --link: #1a66d0;
   --focus: #1a73e8;
@@ -53,6 +55,7 @@
 
   --primary: #8ab4f8;
   --primary-hover: #aecbfa;
+  --primary-strong: #aecbfa;
   --on-primary: #0b1b33;
   --link: #8ab4f8;
   --focus: #8ab4f8;
@@ -438,4 +441,8 @@ p {
     background: #fff;
     color: #000;
   }
+}
+
+picture {
+  display: block;
 }

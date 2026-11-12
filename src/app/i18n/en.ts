@@ -2,22 +2,63 @@ import type { Translations } from './pl';
 
 /** UI copy – English. Must mirror the shape of `pl`. */
 export const en: Translations = {
-  meta: {
-    description:
-      'Byte Hero – a small game studio. Mobile and web games, plus books, for curious minds. Play GeoQuiz: a geography quiz on a 3D globe.',
+  seo: {
+    home: {
+      title: 'Byte Hero',
+      description:
+        'Byte Hero is a game studio making mobile and browser games, plus books, for curious minds. Play GeoQuiz – a free geography quiz on a 3D globe.',
+    },
+    games: {
+      title: 'Mobile and browser games',
+      description:
+        'Games by Byte Hero. GeoQuiz – a geography quiz on a 3D globe, with no ads and no sign-up. More games are in development.',
+    },
+    geoquiz: {
+      title: 'GeoQuiz – geography quiz on a 3D globe',
+      description:
+        'GeoQuiz is a free geography quiz on a spinning 3D globe: flags, capitals, shapes and locations of nearly 200 countries. Six modes, three languages, no ads.',
+    },
+    books: {
+      title: 'Books',
+      description:
+        'Books by Byte Hero: an e-book and a printed edition are in preparation. See what we are working on and where the details will appear.',
+    },
+    privacy: {
+      title: 'Privacy Policy',
+      description:
+        'Privacy policies of Byte Hero apps and the privacy rules of the byte-hero.com website: no tracking cookies and no analytics tools.',
+    },
+    privacyGeoquiz: {
+      title: 'Privacy Policy – Geo Quiz',
+      description:
+        'Privacy policy of the Geo Quiz game (Android and web version): we collect no personal data, with no ads, analytics or user accounts.',
+    },
+    notFound: {
+      title: 'Page not found',
+      description: 'The page you are looking for does not exist or has been moved.',
+    },
   },
-  titles: {
-    home: 'Byte Hero',
+  schema: {
+    organization:
+      'Byte Hero is a game studio making mobile and browser games, plus books. Its first game is GeoQuiz – a geography quiz on a spinning 3D globe.',
+    gameGenre: ['Quiz', 'Educational game', 'Geography'],
+    gameSubCategory: 'Geography quiz',
+    platformWeb: 'Web browser',
+    browserRequirements: 'Requires a browser with JavaScript and WebGL support',
+  },
+  crumbs: {
+    home: 'Home',
     games: 'Games',
-    geoquiz: 'GeoQuiz – geography quiz',
+    geoquiz: 'GeoQuiz',
     books: 'Books',
     privacy: 'Privacy Policy',
-    privacyGeoquiz: 'Privacy Policy – Geo Quiz',
-    notFound: 'Page not found',
+    privacyGeoquiz: 'Geo Quiz',
+    notFound: '404',
   },
   nav: {
     skip: 'Skip to content',
     main: 'Main menu',
+    breadcrumbs: 'Breadcrumb',
     homeAria: 'Byte Hero – home page',
     home: 'Home',
     games: 'Games',
@@ -102,6 +143,22 @@ export const en: Translations = {
     tagline: 'Free geography quiz on a spinning 3D globe',
     intro:
       'Spin the globe, pick a continent and test your knowledge of the world. GeoQuiz runs in your browser and as an Android app – fully offline, with no ads and no account.',
+    factsTitle: 'GeoQuiz at a glance',
+    facts: [
+      { label: 'Developer', value: 'Byte Hero' },
+      { label: 'Genre', value: 'Geography quiz, educational game' },
+      { label: 'Scope', value: 'Nearly 200 countries on six continents' },
+      { label: 'Game modes', value: 'Flags, Countries, Shapes, Capitals, Where is it, Learn' },
+      { label: 'Round length', value: '5, 10 or 15 questions' },
+      { label: 'Languages', value: 'Polish, English, German' },
+      {
+        label: 'Platforms',
+        value: 'Web browser (desktop and mobile); Android – coming soon to Google Play',
+      },
+      { label: 'Price', value: 'Free – no ads and no in-app purchases' },
+      { label: 'Offline mode', value: 'Yes, in the mobile app' },
+      { label: 'Privacy', value: 'No account, no tracking, no personal data collected' },
+    ],
     howTitle: 'How to play',
     steps: [
       'Spin the 3D globe and tap a continent.',
@@ -141,13 +198,48 @@ export const en: Translations = {
     platformsTitle: 'Where to play',
     platformWeb: 'In your browser – no installation, on desktop and mobile.',
     platformAndroid: 'Android app – fully offline. Coming soon to Google Play.',
-    screenshotAlt: 'GeoQuiz screenshot – globe in the Day style',
+    screenshotAlt: 'GeoQuiz screenshot – 3D globe in the Day style showing Europe and Africa',
     screenshotCaption: 'Globe in the “Day” style (web version)',
     privacyTitle: 'Privacy',
     privacyText:
       'GeoQuiz collects no personal data and contains no ads or analytics. See the privacy policy for details.',
+    faqTitle: 'Frequently asked questions about GeoQuiz',
+    faq: [
+      {
+        q: 'What is GeoQuiz?',
+        a: 'GeoQuiz is a geography quiz by Byte Hero. You pick a continent on a spinning 3D globe and then test your knowledge of the flags, capitals, shapes and locations of nearly 200 countries.',
+      },
+      {
+        q: 'Is GeoQuiz free?',
+        a: 'Yes. GeoQuiz is free, contains no ads or in-app purchases and does not require an account.',
+      },
+      {
+        q: 'Where can I play GeoQuiz?',
+        a: 'In your browser at geoquiz.byte-hero.com – no installation, on desktop and mobile. The Android app is coming soon to Google Play.',
+      },
+      {
+        q: 'What game modes does GeoQuiz have?',
+        a: 'Six: Flags, Countries, Shapes, Capitals, Where is it and Learn. In the quiz modes you choose a round of 5, 10 or 15 questions, while Learn mode lets you explore countries with no points and no rush.',
+      },
+      {
+        q: 'Does GeoQuiz work without an internet connection?',
+        a: 'The mobile app works fully offline – maps, flags and country data are built into the app. The browser version needs a connection to load the game.',
+      },
+      {
+        q: 'Which languages is GeoQuiz available in?',
+        a: 'Polish, English and German – the interface as well as country and capital names are translated.',
+      },
+      {
+        q: 'Does GeoQuiz collect personal data?',
+        a: 'No. The game has no accounts, ads or analytics and collects no personal data. It only saves your chosen language and globe style on your device.',
+      },
+      {
+        q: 'Who is GeoQuiz for?',
+        a: 'For pupils, students, travellers and anyone curious about the world – to learn flags and capitals before a geography test, or simply for fun.',
+      },
+    ],
     iconAlt: 'Geo Quiz app icon',
-    logoAlt: 'Geo Quiz logo',
+    logoAlt: 'Globe – GeoQuiz game logo',
   },
   books: {
     title: 'Books',
@@ -165,7 +257,7 @@ export const en: Translations = {
       'Below you will find the privacy policies of our apps. Each one lives at a permanent address.',
     siteTitle: 'The byte-hero.com website',
     siteText:
-      'This website uses no tracking cookies and no analytics tools. The only things saved in your browser are your chosen theme (light/dark) and language.',
+      'This website uses no tracking cookies and no analytics tools. The only things saved in your browser are your chosen theme (light/dark) and whether you dismissed the language hint.',
     appsTitle: 'Apps',
     geoquizText: 'Android mobile app and web version.',
     read: 'Read the policy',

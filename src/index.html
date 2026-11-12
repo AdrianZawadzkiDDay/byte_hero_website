@@ -5,28 +5,12 @@
     <title>Byte Hero</title>
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Byte Hero – małe studio gier. Gry mobilne i webowe oraz książki dla ludzi z pasją. Zagraj w GeoQuiz: quiz geograficzny z globusem 3D."
-    />
     <meta name="theme-color" content="#ffffff" />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Byte Hero" />
-    <meta property="og:title" content="Byte Hero" />
-    <meta
-      property="og:description"
-      content="Gry mobilne i webowe oraz książki dla ludzi z pasją. Zagraj w GeoQuiz: quiz geograficzny z globusem 3D."
-    />
-    <meta property="og:url" content="https://byte-hero.com/" />
-    <meta property="og:image" content="https://byte-hero.com/img/brand/og-image.png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="628" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <link rel="icon" href="favicon.ico" sizes="48x48" />
-    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <script>
-      // Ustawia motyw przed pierwszym renderem, żeby uniknąć mignięcia. Domyślnie: jasny.
+      // Ustawia zapamiętany motyw przed pierwszym malowaniem (bez mignięcia). Domyślnie: jasny.
       try {
         var t = localStorage.getItem('bh-theme');
         document.documentElement.setAttribute('data-theme', t === 'dark' ? 'dark' : 'light');
@@ -35,8 +19,5 @@
   </head>
   <body>
     <app-root></app-root>
-    <noscript
-      >Ta strona wymaga włączonej obsługi JavaScript. / This site requires JavaScript.</noscript
-    >
   </body>
 </html>

@@ -1,28 +1,31 @@
 import { Component, computed, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { I18nService } from '../../core/i18n.service';
-import { GEOQUIZ, GEOQUIZ_PRIVACY_URL, SITE } from '../../core/site.config';
+import { absoluteUrl, GEOQUIZ, SITE } from '../../core/site.config';
 import { privacyGeoquiz } from '../../i18n/privacy-geoquiz';
+import { Breadcrumbs } from '../../shared/breadcrumbs/breadcrumbs';
 import { Icon } from '../../shared/icon/icon';
 
 @Component({
   selector: 'app-privacy-geoquiz',
-  imports: [RouterLink, Icon],
+  imports: [RouterLink, Icon, Breadcrumbs],
   templateUrl: './privacy-geoquiz.html',
   styleUrl: './privacy-geoquiz.scss',
 })
 export class PrivacyGeoquiz {
-  private readonly i18n = inject(I18nService);
+  protected readonly i18n = inject(I18nService);
   protected readonly t = this.i18n.t;
   protected readonly site = SITE;
-  protected readonly policyUrl = GEOQUIZ_PRIVACY_URL;
+
+  /** Stały adres polityki w bieżącym języku – ten link trafia do Google Play. */
+  protected readonly policyUrl = computed(() => absoluteUrl(GEOQUIZ.privacyPath, this.i18n.lang()));
 
   protected readonly sections = computed(() =>
     privacyGeoquiz[this.i18n.lang()]({
       appName: GEOQUIZ.name,
       androidPackage: GEOQUIZ.androidPackage,
       webUrl: GEOQUIZ.webUrl,
-      policyUrl: GEOQUIZ_PRIVACY_URL,
+      policyUrl: this.policyUrl(),
     }),
   );
 

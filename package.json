@@ -6,7 +6,9 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "postbuild": "node scripts/seo-postbuild.mjs",
+    "preview": "node scripts/preview-static.mjs"
   },
   "private": true,
   "packageManager": "npm@11.9.0",
@@ -16,7 +18,9 @@
     "@angular/core": "^22.2.0",
     "@angular/forms": "^22.2.0",
     "@angular/platform-browser": "^22.2.0",
+    "@angular/platform-server": "^22.2.0",
     "@angular/router": "^22.2.0",
+    "@angular/ssr": "^22.2.6",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },

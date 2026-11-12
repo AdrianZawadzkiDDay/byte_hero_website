@@ -1,6 +1,9 @@
-<a class="skip-link" href="#main">{{ t().nav.skip }}</a>
+<a class="skip-link" [href]="skipHref()" (click)="skipToContent($event, main)">{{
+  t().nav.skip
+}}</a>
 <app-header />
-<main id="main" class="site-main" tabindex="-1">
+<main #main id="main" class="site-main" tabindex="-1">
   <router-outlet />
 </main>
 <app-footer />
+<app-lang-hint />

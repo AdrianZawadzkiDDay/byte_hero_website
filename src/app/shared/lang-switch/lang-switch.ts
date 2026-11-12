@@ -1,31 +1,27 @@
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { I18nService } from '../../core/i18n.service';
+import { LangHintService } from '../../core/lang-hint.service';
+import { LANGS, type Lang } from '../../core/lang';
 
+/** Przełącznik PL/EN – zwykłe linki do tej samej podstrony w drugim języku (widoczne dla robotów). */
 @Component({
   selector: 'app-lang-switch',
+  imports: [RouterLink],
   template: `
-    <div class="lang-switch" role="group" [attr.aria-label]="t().lang.label">
-      <button
-        type="button"
-        lang="pl"
-        [class.active]="i18n.lang() === 'pl'"
-        [attr.aria-pressed]="i18n.lang() === 'pl'"
-        [attr.aria-label]="t().lang.switchToPl"
-        (click)="i18n.set('pl')"
-      >
-        PL
-      </button>
-      <button
-        type="button"
-        lang="en"
-        [class.active]="i18n.lang() === 'en'"
-        [attr.aria-pressed]="i18n.lang() === 'en'"
-        [attr.aria-label]="t().lang.switchToEn"
-        (click)="i18n.set('en')"
-      >
-        EN
-      </button>
-    </div>
+    <nav class="lang-switch" [attr.aria-label]="t().lang.label">
+      @for (lang of langs; track lang) {
+        <a
+          [routerLink]="i18n.alternate(lang)"
+          [attr.hreflang]="lang"
+          [attr.lang]="lang"
+          [class.active]="i18n.lang() === lang"
+          [attr.aria-current]="i18n.lang() === lang ? 'true' : null"
+          (click)="hint.dismiss()"
+          >{{ lang.toUpperCase() }}<span class="visually-hidden"> – {{ labels()[lang] }}</span></a
+        >
+      }
+    </nav>
   `,
   styles: `
     .lang-switch {
@@ -36,27 +32,26 @@ import { I18nService } from '../../core/i18n.service';
       background: var(--bg-elev);
     }
 
-    button {
+    a {
       min-width: 40px;
       padding: 0.3rem 0.6rem;
-      border: 0;
       border-radius: 999px;
-      background: transparent;
       color: var(--text-muted);
-      font: inherit;
       font-size: 0.8rem;
       font-weight: 700;
-      cursor: pointer;
+      line-height: 1.5;
+      text-align: center;
+      text-decoration: none;
       transition:
         background-color 0.2s,
         color 0.2s;
     }
 
-    button:hover {
+    a:hover {
       color: var(--text);
     }
 
-    button.active {
+    a.active {
       background: var(--primary);
       color: var(--on-primary);
     }
@@ -64,5 +59,11 @@ import { I18nService } from '../../core/i18n.service';
 })
 export class LangSwitch {
   protected readonly i18n = inject(I18nService);
+  protected readonly hint = inject(LangHintService);
   protected readonly t = this.i18n.t;
+  protected readonly langs = LANGS;
+  protected readonly labels = computed<Record<Lang, string>>(() => ({
+    pl: this.t().lang.switchToPl,
+    en: this.t().lang.switchToEn,
+  }));
 }

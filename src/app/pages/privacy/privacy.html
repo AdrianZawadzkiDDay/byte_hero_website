@@ -1,5 +1,6 @@
 <section class="page-head">
   <div class="container">
+    <app-breadcrumbs page="privacy" />
     <h1>{{ t().privacy.title }}</h1>
     <p class="lead">{{ t().privacy.intro }}</p>
   </div>
@@ -10,11 +11,14 @@
     <h2>{{ t().privacy.appsTitle }}</h2>
     <div class="grid-2">
       <article class="card policy-card">
-        <img src="/img/geoquiz/icon-512.png" width="56" height="56" alt="" />
+        <picture>
+          <source srcset="/img/geoquiz/icon-192.webp" type="image/webp" />
+          <img src="/img/geoquiz/icon-192.png" width="56" height="56" alt="" />
+        </picture>
         <div>
           <h3>{{ geoquiz.name }}</h3>
           <p>{{ t().privacy.geoquizText }}</p>
-          <a class="read" [routerLink]="geoquiz.privacyPath">
+          <a class="read" [routerLink]="i18n.link(geoquiz.privacyPath)">
             {{ t().privacy.read }}
             <app-icon name="arrow-right" />
           </a>

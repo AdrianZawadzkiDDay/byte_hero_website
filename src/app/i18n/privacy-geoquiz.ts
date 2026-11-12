@@ -1,4 +1,4 @@
-import type { Lang } from '../core/i18n.service';
+import type { Lang } from '../core/lang';
 
 export interface PolicySection {
   heading: string;

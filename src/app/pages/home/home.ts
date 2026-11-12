@@ -2,8 +2,8 @@ import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { I18nService } from '../../core/i18n.service';
 import { GEOQUIZ } from '../../core/site.config';
-import { Logo } from '../../shared/logo/logo';
 import { Icon } from '../../shared/icon/icon';
+import { Logo } from '../../shared/logo/logo';
 
 @Component({
   selector: 'app-home',
@@ -12,6 +12,7 @@ import { Icon } from '../../shared/icon/icon';
   styleUrl: './home.scss',
 })
 export class Home {
-  protected readonly t = inject(I18nService).t;
+  protected readonly i18n = inject(I18nService);
+  protected readonly t = this.i18n.t;
   protected readonly geoquiz = GEOQUIZ;
 }

@@ -1,53 +1,54 @@
+import { PlatformLocation } from '@angular/common';
 import { computed, DOCUMENT, effect, inject, Injectable, signal } from '@angular/core';
-import { pl, type Translations } from '../i18n/pl';
-import { en } from '../i18n/en';
-
-export type Lang = 'pl' | 'en';
-
-const STORAGE_KEY = 'bh-lang';
-const DICTIONARIES: Record<Lang, Translations> = { pl, en };
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs';
+import { DICTIONARIES, type Translations } from '../i18n';
+import { langFromPath, localizePath, normalizePath, pagePath, type Lang } from './lang';
+import { isKnownPagePath } from './pages';
 
 /**
- * Język interfejsu (PL/EN). Startowo: zapamiętany wybór, a jeśli go nie ma –
- * polski dla przeglądarek po polsku, angielski dla pozostałych.
+ * Język interfejsu wynika z adresu URL: `/...` to polski, `/en/...` to angielski.
+ * Dzięki temu każda wersja językowa ma własny, indeksowalny adres i jest
+ * renderowana po stronie serwera od razu we właściwym języku.
  */
 @Injectable({ providedIn: 'root' })
 export class I18nService {
   private readonly document = inject(DOCUMENT);
+  private readonly router = inject(Router);
 
-  readonly lang = signal<Lang>(detectLang());
+  // Adres startowy znany synchronicznie na serwerze i w przeglądarce – bez mignięcia języka.
+  private readonly url = signal(inject(PlatformLocation).pathname);
+
+  readonly lang = computed<Lang>(() => langFromPath(this.url()));
   /** Aktualny słownik – w szablonach: `t().nav.games` */
   readonly t = computed<Translations>(() => DICTIONARIES[this.lang()]);
+  /** Bieżąca ścieżka (z prefiksem języka, bez query i fragmentu). */
+  readonly path = computed(() => normalizePath(this.url()));
+  /** Bieżąca ścieżka bez prefiksu języka, np. `/games/geoquiz`. */
+  readonly page = computed(() => pagePath(this.url()));
 
   constructor() {
+    this.router.events
+      .pipe(
+        filter((event): event is NavigationEnd => event instanceof NavigationEnd),
+        takeUntilDestroyed(),
+      )
+      .subscribe((event) => this.url.set(event.urlAfterRedirects));
+
     effect(() => {
-      const lang = this.lang();
-      this.document.documentElement.lang = lang;
-      this.document
-        .querySelector('meta[name="description"]')
-        ?.setAttribute('content', DICTIONARIES[lang].meta.description);
-      try {
-        localStorage.setItem(STORAGE_KEY, lang);
-      } catch {
-        // brak localStorage – wybór działa tylko w tej sesji
-      }
+      this.document.documentElement.lang = this.lang();
     });
   }
 
-  set(lang: Lang): void {
-    this.lang.set(lang);
+  /** Link wewnętrzny w bieżącym języku: `link('/games')` → `/en/games` na wersji angielskiej. */
+  link(page: string): string {
+    return localizePath(page, this.lang());
   }
-}
 
-function detectLang(): Lang {
-  try {
-    const stored = localStorage.getItem(STORAGE_KEY);
-    if (stored === 'pl' || stored === 'en') {
-      return stored;
-    }
-  } catch {
-    // ignorujemy – użyjemy języka przeglądarki
+  /** Ta sama podstrona w innym języku (dla nieznanych adresów – strona główna). */
+  alternate(lang: Lang): string {
+    const page = this.page();
+    return localizePath(isKnownPagePath(page) ? page : '/', lang);
   }
-  const browser = typeof navigator !== 'undefined' ? navigator.language : '';
-  return browser.toLowerCase().startsWith('pl') ? 'pl' : 'en';
 }

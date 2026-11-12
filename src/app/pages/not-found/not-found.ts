@@ -11,7 +11,7 @@ import { I18nService } from '../../core/i18n.service';
         <p class="code" aria-hidden="true">404</p>
         <h1>{{ t().notFound.title }}</h1>
         <p class="lead">{{ t().notFound.text }}</p>
-        <a class="btn btn-primary" routerLink="/">{{ t().common.backHome }}</a>
+        <a class="btn btn-primary" [routerLink]="i18n.link('/')">{{ t().common.backHome }}</a>
       </div>
     </section>
   `,
@@ -43,5 +43,6 @@ import { I18nService } from '../../core/i18n.service';
   `,
 })
 export class NotFound {
-  protected readonly t = inject(I18nService).t;
+  protected readonly i18n = inject(I18nService);
+  protected readonly t = this.i18n.t;
 }

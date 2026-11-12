@@ -1,5 +1,6 @@
 <section class="page-head">
   <div class="container">
+    <app-breadcrumbs page="games" />
     <h1>{{ t().games.title }}</h1>
     <p class="lead">{{ t().games.intro }}</p>
   </div>
@@ -9,11 +10,27 @@
   <div class="container">
     <div class="grid-2">
       <article class="geo-panel game-card">
-        <a routerLink="/games/geoquiz" class="game-media" tabindex="-1" aria-hidden="true">
-          <img src="/img/geoquiz/globe.png" width="200" height="200" alt="" />
+        <a
+          [routerLink]="i18n.link('/games/geoquiz')"
+          class="game-media"
+          tabindex="-1"
+          aria-hidden="true"
+        >
+          <picture>
+            <source
+              srcset="
+                /img/geoquiz/globe-200.webp 200w,
+                /img/geoquiz/globe-300.webp 300w,
+                /img/geoquiz/globe-400.webp 400w
+              "
+              sizes="200px"
+              type="image/webp"
+            />
+            <img src="/img/geoquiz/globe.png" width="200" height="200" alt="" />
+          </picture>
         </a>
         <div class="game-body">
-          <h2><a routerLink="/games/geoquiz">GeoQuiz</a></h2>
+          <h2><a [routerLink]="i18n.link('/games/geoquiz')">GeoQuiz</a></h2>
           <p class="tagline">{{ t().games.geoquizTagline }}</p>
           <p>{{ t().games.geoquizText }}</p>
           <ul class="badges">
@@ -28,7 +45,9 @@
               {{ t().common.playWeb }}
               <span class="visually-hidden">({{ t().common.newTab }})</span>
             </a>
-            <a class="btn btn-outline" routerLink="/games/geoquiz">{{ t().common.learnMore }}</a>
+            <a class="btn btn-outline" [routerLink]="i18n.link('/games/geoquiz')">{{
+              t().common.learnMore
+            }}</a>
           </div>
         </div>
       </article>

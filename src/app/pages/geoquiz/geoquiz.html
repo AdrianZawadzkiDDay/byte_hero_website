@@ -1,13 +1,17 @@
 <section class="page-head">
   <div class="container">
+    <app-breadcrumbs page="geoquiz" />
     <div class="geo-head">
-      <img
-        class="app-icon"
-        src="/img/geoquiz/icon-512.png"
-        width="96"
-        height="96"
-        [alt]="t().geoquiz.iconAlt"
-      />
+      <picture>
+        <source srcset="/img/geoquiz/icon-192.webp" type="image/webp" />
+        <img
+          class="app-icon"
+          src="/img/geoquiz/icon-192.png"
+          width="96"
+          height="96"
+          [alt]="t().geoquiz.iconAlt"
+        />
+      </picture>
       <div>
         <p class="eyebrow">{{ t().geoquiz.eyebrow }}</p>
         <h1>GeoQuiz</h1>
@@ -44,19 +48,44 @@
 <section class="section shot">
   <div class="container">
     <figure class="screenshot geo-panel">
-      <img
-        src="/img/geoquiz/screenshot-day.jpg"
-        width="1600"
-        height="893"
-        [alt]="t().geoquiz.screenshotAlt"
-        loading="lazy"
-      />
+      <picture>
+        <source
+          srcset="
+            /img/geoquiz/screenshot-day-800.webp   800w,
+            /img/geoquiz/screenshot-day-1200.webp 1200w,
+            /img/geoquiz/screenshot-day-1600.webp 1600w
+          "
+          sizes="(min-width: 1184px) 1030px, calc(100vw - 56px)"
+          type="image/webp"
+        />
+        <img
+          src="/img/geoquiz/screenshot-day.jpg"
+          width="1600"
+          height="893"
+          [alt]="t().geoquiz.screenshotAlt"
+          fetchpriority="high"
+        />
+      </picture>
       <figcaption>{{ t().geoquiz.screenshotCaption }}</figcaption>
     </figure>
   </div>
 </section>
 
 <section class="section section-soft">
+  <div class="container">
+    <h2 class="section-title">{{ t().geoquiz.factsTitle }}</h2>
+    <dl class="facts">
+      @for (fact of t().geoquiz.facts; track fact.label) {
+        <div class="fact">
+          <dt>{{ fact.label }}</dt>
+          <dd>{{ fact.value }}</dd>
+        </div>
+      }
+    </dl>
+  </div>
+</section>
+
+<section class="section">
   <div class="container">
     <h2 class="section-title">{{ t().geoquiz.howTitle }}</h2>
     <ol class="steps">
@@ -67,7 +96,7 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section section-soft">
   <div class="container">
     <h2 class="section-title">{{ t().geoquiz.modesTitle }}</h2>
     <ul class="modes">
@@ -84,13 +113,23 @@
   </div>
 </section>
 
-<section class="section section-soft">
+<section class="section">
   <div class="container">
     <h2 class="section-title">{{ t().geoquiz.stylesTitle }}</h2>
     <ul class="styles-grid">
       @for (style of t().geoquiz.styles; track style.key) {
         <li class="card style-card">
-          <img [src]="'/img/geoquiz/globe-' + style.key + '.png'" width="120" height="120" alt="" />
+          <picture>
+            <source [srcset]="'/img/geoquiz/globe-' + style.key + '.webp'" type="image/webp" />
+            <img
+              [src]="'/img/geoquiz/globe-' + style.key + '.png'"
+              width="120"
+              height="120"
+              alt=""
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
           <h3>{{ style.name }}</h3>
           <p>{{ style.text }}</p>
         </li>
@@ -99,7 +138,7 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section section-soft">
   <div class="container info-grid">
     <article class="card info-card">
       <h2><app-icon name="globe" /> {{ t().geoquiz.langsTitle }}</h2>
@@ -124,9 +163,23 @@
     <article class="card info-card">
       <h2><app-icon name="shield" /> {{ t().geoquiz.privacyTitle }}</h2>
       <p>{{ t().geoquiz.privacyText }}</p>
-      <a class="btn btn-outline" [routerLink]="geoquiz.privacyPath">{{
+      <a class="btn btn-outline" [routerLink]="i18n.link(geoquiz.privacyPath)">{{
         t().common.privacyPolicy
       }}</a>
     </article>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">{{ t().geoquiz.faqTitle }}</h2>
+    <div class="faq">
+      @for (item of t().geoquiz.faq; track item.q) {
+        <article class="faq-item">
+          <h3>{{ item.q }}</h3>
+          <p>{{ item.a }}</p>
+        </article>
+      }
+    </div>
   </div>
 </section>

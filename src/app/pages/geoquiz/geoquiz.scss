@@ -200,3 +200,47 @@
   margin-top: 0.2rem;
   color: var(--primary);
 }
+
+.geo-head picture {
+  flex: none;
+}
+
+.facts {
+  display: grid;
+  gap: 0 2.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+  margin: 0;
+}
+
+.fact {
+  display: grid;
+  grid-template-columns: minmax(110px, 0.4fr) 1fr;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.fact dt {
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.fact dd {
+  margin: 0;
+}
+
+.faq {
+  display: grid;
+  gap: 1.75rem 2.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+}
+
+.faq-item h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1.1rem;
+}
+
+.faq-item p {
+  margin: 0;
+  color: var(--text-muted);
+}

@@ -11,7 +11,8 @@ import { Logo } from '../logo/logo';
   styleUrl: './footer.scss',
 })
 export class Footer {
-  protected readonly t = inject(I18nService).t;
+  protected readonly i18n = inject(I18nService);
+  protected readonly t = this.i18n.t;
   protected readonly site = SITE;
   protected readonly year = new Date().getFullYear();
 }
